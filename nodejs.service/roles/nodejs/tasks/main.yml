@@ -1,0 +1,15 @@
+---
+# tasks file for ping
+- name: updating cache
+  ansible.builtin.apt:
+    update_cache: yes
+  when: ansible_facts['distribution'] == "Ubuntu"
+- name: getting curl
+  ansible.builtin.get_url:
+    url: -sL https://rpm.nodesource.com/setup_10.x
+    dest: /home/chaitanya/nodjs
+  when: ansible_facts['distribution'] == "centos"
+- name: installing nodejs
+  ansible.builtin.package:    
+    name: "{{node}}"
+        

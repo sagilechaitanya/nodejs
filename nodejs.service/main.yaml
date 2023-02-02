@@ -1,0 +1,6 @@
+---
+- name: intsalling nodejs
+  hosts: all
+  become: yes
+  roles:
+    - nodejs
